@@ -19,6 +19,6 @@ export class NumberSeatsComponent {
 
   lockSeats() {
     this.store.dispatch(setSeatsToFill({ val: this.seatsInputVal }));
-    console.log(this.seatsToFill);
+    // console.log(this.seatsToFill);
   }
 }
