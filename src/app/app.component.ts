@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import Seat from './types/Seat';
+import getSeats from './utils/getSeats';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'assignment-seat-booking';
+  seats: Seat[] = getSeats();
 }

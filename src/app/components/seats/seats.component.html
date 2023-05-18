@@ -1,1 +1,17 @@
-<p>seats works!</p>
+<div>
+  <div class="grid grid-cols-7">
+    <div *ngFor="let seat of seats | slice : 0 : 77">
+      <app-single-seat></app-single-seat>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-7">
+    <div></div>
+    <div></div>
+    <app-single-seat></app-single-seat>
+    <app-single-seat></app-single-seat>
+    <app-single-seat></app-single-seat>
+    <div></div>
+    <div></div>
+  </div>
+</div>
