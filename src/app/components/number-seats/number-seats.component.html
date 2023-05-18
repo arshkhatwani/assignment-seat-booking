@@ -22,4 +22,11 @@
       Lock seats
     </button>
   </button>
+
+  <div class="my-3" *ngIf="showMsg">
+    <span class="text-green-700"
+      >Seats locked successfully. To lock some other number enter the value in
+      input and press "Lock" button again</span
+    >
+  </div>
 </div>

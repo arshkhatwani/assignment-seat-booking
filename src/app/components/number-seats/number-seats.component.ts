@@ -10,6 +10,7 @@ import { setSeatsToFill } from 'src/app/ngrx/seatsToFill.actions';
 export class NumberSeatsComponent {
   seatsInputVal: number = 0;
   seatsToFill: number = 0;
+  showMsg: boolean = false;
 
   constructor(private store: Store<{ seatsToFill: number }>) {
     this.store.pipe(select('seatsToFill')).subscribe((seatsToFill) => {
@@ -20,5 +21,6 @@ export class NumberSeatsComponent {
   lockSeats() {
     this.store.dispatch(setSeatsToFill({ val: this.seatsInputVal }));
     // console.log(this.seatsToFill);
+    this.showMsg = true;
   }
 }
