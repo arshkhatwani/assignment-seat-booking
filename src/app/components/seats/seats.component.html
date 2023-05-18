@@ -5,9 +5,7 @@
       *ngFor="let seat of seats | slice : 0 : 77"
     >
       <app-single-seat
-        [seats]="seats"
         [seat]="seat"
-        [seatStatusChange]="seatStatusChange"
         [seatsToAdd]="seatsToAdd"
       ></app-single-seat>
     </div>
@@ -21,9 +19,7 @@
       *ngFor="let seat of seats | slice : 77 : 80"
     >
       <app-single-seat
-        [seats]="seats"
         [seat]="seat"
-        [seatStatusChange]="seatStatusChange"
         [seatsToAdd]="seatsToAdd"
       ></app-single-seat>
     </div>

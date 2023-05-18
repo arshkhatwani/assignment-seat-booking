@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { SeatsComponent } from './components/seats/seats.component';
 import { SingleSeatComponent } from './components/single-seat/single-seat.component';
 import { NumberSeatsComponent } from './components/number-seats/number-seats.component';
+import { StoreModule } from '@ngrx/store';
+import { seatsReducer } from './ngrx/seats.reducer';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,11 @@ import { NumberSeatsComponent } from './components/number-seats/number-seats.com
     SingleSeatComponent,
     NumberSeatsComponent,
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    StoreModule.forRoot({ seats: seatsReducer }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import Seat from './types/Seat';
-import getSeats from './utils/getSeats';
+import { Store, select } from '@ngrx/store';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +9,12 @@ import getSeats from './utils/getSeats';
 })
 export class AppComponent {
   title = 'assignment-seat-booking';
-  seats: Seat[] = getSeats();
+  seats: Seat[] = [];
   seatsToAdd: number = 0;
 
-  seatStatusChange(seat: Seat) {
-    // console.log(seat);
-    // console.log(this.seats);
-    console.log(this.seatsToAdd);
-    const idx = this.seats.indexOf(seat);
-    this.seats[idx].available = !this.seats[idx].available;
+  constructor(private store: Store<{ seats: Seat[] }>) {
+    this.store.pipe(select('seats')).subscribe((seats) => {
+      this.seats = seats;
+    });
   }
 }

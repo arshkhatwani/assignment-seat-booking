@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import Seat from 'src/app/types/Seat';
+import { Store, select } from '@ngrx/store';
 
 @Component({
   selector: 'app-seats',
@@ -7,7 +8,12 @@ import Seat from 'src/app/types/Seat';
   styleUrls: ['./seats.component.css'],
 })
 export class SeatsComponent {
-  @Input() seats: Seat[] = [];
-  @Input() seatStatusChange: Function = () => {};
   @Input() seatsToAdd: number = 0;
+  seats: Seat[] = [];
+
+  constructor(private store: Store<{ seats: Seat[] }>) {
+    this.store.pipe(select('seats')).subscribe((seats) => {
+      this.seats = seats;
+    });
+  }
 }
