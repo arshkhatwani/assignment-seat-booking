@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import Seat from '../types/Seat';
 import getSeats from '../utils/getSeats';
-import { seatStatusChange } from './seats.actions';
+import { seatStatusChange, seatStatusChangeMultiple } from './seats.actions';
 
 export const initialState: Seat[] = getSeats();
 
@@ -15,6 +15,24 @@ export const seatsReducer = createReducer(
       }
       return item;
     });
+    return newSeats;
+  }),
+  on(seatStatusChangeMultiple, (state, action) => {
+    const total = action.numberOfSeats;
+    const seatToChange = action.seatToChange;
+
+    const idx = state.indexOf(seatToChange);
+    let seatsLeft = total;
+
+    let newSeats: Seat[] = getSeats();
+    newSeats = newSeats.map((item, index) => {
+      if (index >= idx && seatsLeft > 0 && item.available === true) {
+        seatsLeft--;
+        return { id: item.id, available: false };
+      }
+      return item;
+    });
+
     return newSeats;
   })
 );
