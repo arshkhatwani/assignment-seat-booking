@@ -10,6 +10,7 @@ export class SingleSeatComponent {
   @Input() seat: Seat = { available: true, id: 'test' };
   @Input() seats: Seat[] = [];
   @Input() seatStatusChange: Function = () => {};
+  @Input() seatsToAdd: number = 0;
 
   fillSeat() {
     this.seatStatusChange(this.seat);

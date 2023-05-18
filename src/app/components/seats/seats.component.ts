@@ -9,6 +9,5 @@ import Seat from 'src/app/types/Seat';
 export class SeatsComponent {
   @Input() seats: Seat[] = [];
   @Input() seatStatusChange: Function = () => {};
-
-  constructor() {}
+  @Input() seatsToAdd: number = 0;
 }
