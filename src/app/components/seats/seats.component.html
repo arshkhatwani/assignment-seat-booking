@@ -1,16 +1,30 @@
-<div>
-  <div class="grid grid-cols-7">
-    <div *ngFor="let seat of seats | slice : 0 : 77">
-      <app-single-seat></app-single-seat>
+<div class="mx-auto">
+  <div class="grid grid-cols-7 gap-2.5 gap-y-3 mb-2.5">
+    <div
+      class="flex justify-center items-center"
+      *ngFor="let seat of seats | slice : 0 : 77"
+    >
+      <app-single-seat
+        [seats]="seats"
+        [seat]="seat"
+        [seatStatusChange]="seatStatusChange"
+      ></app-single-seat>
     </div>
   </div>
 
-  <div class="grid grid-cols-7">
+  <div class="grid grid-cols-7 gap-2.5">
     <div></div>
     <div></div>
-    <app-single-seat></app-single-seat>
-    <app-single-seat></app-single-seat>
-    <app-single-seat></app-single-seat>
+    <div
+      class="flex justify-center items-center"
+      *ngFor="let seat of seats | slice : 77 : 80"
+    >
+      <app-single-seat
+        [seats]="seats"
+        [seat]="seat"
+        [seatStatusChange]="seatStatusChange"
+      ></app-single-seat>
+    </div>
     <div></div>
     <div></div>
   </div>

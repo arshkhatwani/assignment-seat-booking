@@ -1,1 +1,8 @@
-<p>single-seat works!</p>
+<div (click)="fillSeat()" class="cursor-pointer w-10">
+  <img *ngIf="seat.available" src="../../../assets/chair.png" alt="chair" />
+  <img
+    *ngIf="!seat.available"
+    src="../../../assets/chair-filled.png"
+    alt="chair-filled"
+  />
+</div>

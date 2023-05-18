@@ -1,11 +1,11 @@
 import Seat from '../types/Seat';
 
 const getSeats = (): Seat[] => {
-  const singleSeat: Seat = {
-    available: true,
-  };
-
-  return new Array(80).fill(singleSeat);
+  let seats: Seat[] = [];
+  for (let i = 0; i < 80; i++) {
+    seats.push(new Seat(true));
+  }
+  return seats;
 };
 
 export default getSeats;
