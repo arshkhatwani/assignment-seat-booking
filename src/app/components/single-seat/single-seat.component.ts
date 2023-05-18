@@ -10,7 +10,6 @@ import Seat from 'src/app/types/Seat';
 })
 export class SingleSeatComponent {
   @Input() seat: Seat = { available: true, id: 'test' };
-  @Input() seatsToAdd: number = 0;
 
   constructor(private store: Store<{ seats: Seat[] }>) {}
 

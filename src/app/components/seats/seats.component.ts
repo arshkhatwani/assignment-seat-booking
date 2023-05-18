@@ -8,7 +8,6 @@ import { Store, select } from '@ngrx/store';
   styleUrls: ['./seats.component.css'],
 })
 export class SeatsComponent {
-  @Input() seatsToAdd: number = 0;
   seats: Seat[] = [];
 
   constructor(private store: Store<{ seats: Seat[] }>) {

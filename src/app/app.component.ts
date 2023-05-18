@@ -10,7 +10,6 @@ import { Store, select } from '@ngrx/store';
 export class AppComponent {
   title = 'assignment-seat-booking';
   seats: Seat[] = [];
-  seatsToAdd: number = 0;
 
   constructor(private store: Store<{ seats: Seat[] }>) {
     this.store.pipe(select('seats')).subscribe((seats) => {

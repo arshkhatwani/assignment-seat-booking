@@ -4,10 +4,7 @@
       class="flex justify-center items-center"
       *ngFor="let seat of seats | slice : 0 : 77"
     >
-      <app-single-seat
-        [seat]="seat"
-        [seatsToAdd]="seatsToAdd"
-      ></app-single-seat>
+      <app-single-seat [seat]="seat"></app-single-seat>
     </div>
   </div>
 
@@ -18,10 +15,7 @@
       class="flex justify-center items-center"
       *ngFor="let seat of seats | slice : 77 : 80"
     >
-      <app-single-seat
-        [seat]="seat"
-        [seatsToAdd]="seatsToAdd"
-      ></app-single-seat>
+      <app-single-seat [seat]="seat"></app-single-seat>
     </div>
     <div></div>
     <div></div>
